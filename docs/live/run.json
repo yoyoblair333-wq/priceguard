@@ -3,8 +3,8 @@
  "steps": [
   {
    "step": "deploy",
-   "tx": "0x0b92cb626f532721f124eacf151aa1a8b4f1354ecc44325701de27a644e288fc",
-   "sent_at": "2026-11-23T04:29:34Z",
+   "tx": "0x1f505d0b11d67d6bdb855838b3fc29679eeeb4ce18303f52bdf2f162d7c5d626",
+   "sent_at": "2026-11-23T04:47:55Z",
    "status": "ACCEPTED",
    "result": "MAJORITY_AGREE",
    "execution": "SUCCESS",
@@ -12,7 +12,7 @@
     "agree",
     "agree",
     "agree",
-    "agree",
+    "idle",
     "idle"
    ],
    "error": null,
@@ -24,7 +24,7 @@
      "agree",
      "agree",
      "agree",
-     "agree",
+     "idle",
      "idle"
     ],
     "error": null
@@ -32,8 +32,8 @@
   },
   {
    "step": "open_plan #1 (100 % of the drop, 60 days, adafruit.com, min $1, cap $50; fund 2 GEN)",
-   "tx": "0x4ba38d3ce36ee22d629df2e061e72158d7dc599b73370a312467c8b86a2e17b8",
-   "sent_at": "2026-11-23T04:29:44Z",
+   "tx": "0x85ff821a0dcdf6027aca3a0103826cacad70cbc9e3dbdb4853e9d386615b6699",
+   "sent_at": "2026-11-23T04:48:04Z",
    "status": "ACCEPTED",
    "result": "MAJORITY_AGREE",
    "execution": "SUCCESS",
@@ -61,8 +61,8 @@
   },
   {
    "step": "register purchase #1: Pi 4 4 GB paid $135.00 (test registration)",
-   "tx": "0xa7039eb59081b207d1dd67a8146ac590e844c4cb564f199f5e8d78a440efc8fb",
-   "sent_at": "2026-11-23T04:29:53Z",
+   "tx": "0x1189b389864e925593805de06ff760dfc13d76311d8a7b8a4b3e96bb10b03963",
+   "sent_at": "2026-11-23T04:48:13Z",
    "status": "ACCEPTED",
    "result": "MAJORITY_AGREE",
    "execution": "SUCCESS",
@@ -70,7 +70,7 @@
     "agree",
     "agree",
     "agree",
-    "agree",
+    "idle",
     "idle"
    ],
    "error": null,
@@ -82,7 +82,7 @@
      "agree",
      "agree",
      "agree",
-     "agree",
+     "idle",
      "idle"
     ],
     "error": null
@@ -90,8 +90,8 @@
   },
   {
    "step": "register purchase #2: Pi 4 8 GB paid $199.00 (test registration, same page)",
-   "tx": "0x53f3f24139b6b59af639e64cd62666a03bbefee697414980a7c4b60227c4ec7c",
-   "sent_at": "2026-11-23T04:30:03Z",
+   "tx": "0xc20b536b58103270b45f6f4b6e1979fad37e2729b041170da5fd1d8ed4a46ce8",
+   "sent_at": "2026-11-23T04:48:23Z",
    "status": "ACCEPTED",
    "result": "MAJORITY_AGREE",
    "execution": "SUCCESS",
@@ -99,7 +99,7 @@
     "agree",
     "agree",
     "agree",
-    "agree",
+    "idle",
     "idle"
    ],
    "error": null,
@@ -111,7 +111,7 @@
      "agree",
      "agree",
      "agree",
-     "agree",
+     "idle",
      "idle"
     ],
     "error": null
@@ -119,8 +119,8 @@
   },
   {
    "step": "register purchase #3: Pi 4 4 GB paid $120.00, no drop (test registration)",
-   "tx": "0x282ff7f9e2b48cfcbc5e2c41a69452d55d4e61c1e8768f292a79f87bbdb38c7e",
-   "sent_at": "2026-11-23T04:30:18Z",
+   "tx": "0x49b4cff0560df186397740e3be9d1c9bc6d8f838afa1e25ce0361d49972b2460",
+   "sent_at": "2026-11-23T04:48:32Z",
    "status": "ACCEPTED",
    "result": "MAJORITY_AGREE",
    "execution": "SUCCESS",
@@ -148,8 +148,8 @@
   },
   {
    "step": "check #1 (consensus price read)",
-   "tx": "0x856cd0400242086d0587676d73054acd6d0e4f346660b9894d74214a9697db5a",
-   "sent_at": "2026-11-23T04:30:27Z",
+   "tx": "0x3ea8411db20514a7022986e66399477df990037995f73877663ea46c4d725e93",
+   "sent_at": "2026-11-23T04:48:41Z",
    "status": "ACCEPTED",
    "result": "MAJORITY_AGREE",
    "execution": "SUCCESS",
@@ -177,8 +177,8 @@
   },
   {
    "step": "check #2 (consensus price read)",
-   "tx": "0x0998d454efc6b80296840dc70272434594cefa5dd065a015bc204e4830475b0a",
-   "sent_at": "2026-11-23T04:30:57Z",
+   "tx": "0xeb9165e104f2b3e4a325a6f3555ee4cb28e8b36ae2019c129b8ec87c09c7eb61",
+   "sent_at": "2026-11-23T04:48:56Z",
    "status": "ACCEPTED",
    "result": "MAJORITY_AGREE",
    "execution": "SUCCESS",
@@ -206,8 +206,8 @@
   },
   {
    "step": "check #3 (consensus price read)",
-   "tx": "0xda388301c533e26481eba099d131bacd07b38135a9973ad9c8be60be840000b7",
-   "sent_at": "2026-11-23T04:31:12Z",
+   "tx": "0xc45c150120d55688fce31da74ad53a5f3907120e43de2b32562f55ca11e75259",
+   "sent_at": "2026-11-23T04:49:21Z",
    "status": "ACCEPTED",
    "result": "MAJORITY_AGREE",
    "execution": "SUCCESS",
@@ -215,7 +215,7 @@
     "agree",
     "agree",
     "agree",
-    "agree",
+    "idle",
     "idle"
    ],
    "error": null,
@@ -227,7 +227,7 @@
      "agree",
      "agree",
      "agree",
-     "agree",
+     "idle",
      "idle"
     ],
     "error": null
@@ -235,8 +235,8 @@
   },
   {
    "step": "withdraw (buyer)",
-   "tx": "0x378c428f4ac73b248166fa13936a404a7f90e2a733fd7cc404d178f0c9063c47",
-   "sent_at": "2026-11-23T04:31:37Z",
+   "tx": "0x5d53eebf1bbff80c96e26ebbf47976a05676dbf5bbdae0886add8ebd9c338561",
+   "sent_at": "2026-11-23T04:49:41Z",
    "status": "ACCEPTED",
    "result": "MAJORITY_AGREE",
    "execution": "SUCCESS",
@@ -244,7 +244,7 @@
     "agree",
     "agree",
     "agree",
-    "agree",
+    "idle",
     "idle"
    ],
    "error": null,
@@ -256,7 +256,7 @@
      "agree",
      "agree",
      "agree",
-     "agree",
+     "idle",
      "idle"
     ],
     "error": null
@@ -264,8 +264,8 @@
   },
   {
    "step": "withdraw (buyer2)",
-   "tx": "0x70f5b50133d70163becaa02f3349db23d45ed8219d4fa6eda2feb35b1d341c32",
-   "sent_at": "2026-11-23T04:31:52Z",
+   "tx": "0x048ee305d4381fb7d71730900e76f4722a3792ff4026f5b159d60df885d84a6d",
+   "sent_at": "2026-11-23T04:49:56Z",
    "status": "ACCEPTED",
    "result": "MAJORITY_AGREE",
    "execution": "SUCCESS",
@@ -300,8 +300,8 @@
  "funded_issuer": true,
  "funded_buyer": true,
  "funded_buyer2": true,
- "contract": "0x0c200B54fd79b227f963D608eB0d97aB89447bab",
- "explorer": "https://explorer-studio.genlayer.com/address/0x0c200B54fd79b227f963D608eB0d97aB89447bab",
+ "contract": "0xAeD6034E3aB271822c67De82A36B4270B9b4a94E",
+ "explorer": "https://explorer-studio.genlayer.com/address/0xAeD6034E3aB271822c67De82A36B4270B9b4a94E",
  "purchases": {
   "1": {
    "buyer": "0x0fF851cd935eD160C048c7312Dcda0ef97Be82AF",
@@ -311,13 +311,13 @@
    "currency": "USD",
    "history": [
     {
-     "at": "2026-11-23T04:30:26Z",
+     "at": "2026-11-23T04:48:41Z",
      "credited_cents": 1500,
      "detail": {
       "currency": "USD",
       "model_price": "120.00",
       "model_status": "PRICED",
-      "quote": "Raspberry Pi 4 Model B - 4 GB RAM Product ID: 4296 $120.00"
+      "quote": "4GB $120.00"
      },
      "record": {
       "price_cents": 12000,
@@ -327,12 +327,12 @@
    ],
    "id": 1,
    "item": "Raspberry Pi 4 Model B - 4 GB RAM",
-   "last_check": "2026-11-23T04:30:26Z",
+   "last_check": "2026-11-23T04:48:41Z",
    "last_detail": {
     "currency": "USD",
     "model_price": "120.00",
     "model_status": "PRICED",
-    "quote": "Raspberry Pi 4 Model B - 4 GB RAM Product ID: 4296 $120.00"
+    "quote": "4GB $120.00"
    },
    "last_record": {
     "price_cents": 12000,
@@ -342,7 +342,7 @@
    "paid_cents": 13500,
    "plan_id": 1,
    "purchased_on": "2026-11-10",
-   "registered_at": "2026-11-23T04:29:53Z",
+   "registered_at": "2026-11-23T04:48:13Z",
    "url": "https://www.adafruit.com/product/4296",
    "variant": "4GB",
    "window_ends": "2027-01-10T00:00:00Z"
@@ -355,7 +355,7 @@
    "currency": "USD",
    "history": [
     {
-     "at": "2026-11-23T04:30:57Z",
+     "at": "2026-11-23T04:48:56Z",
      "credited_cents": 900,
      "detail": {
       "currency": "USD",
@@ -371,7 +371,7 @@
    ],
    "id": 2,
    "item": "Raspberry Pi 4 Model B - 4 GB RAM",
-   "last_check": "2026-11-23T04:30:57Z",
+   "last_check": "2026-11-23T04:48:56Z",
    "last_detail": {
     "currency": "USD",
     "model_price": "190.00",
@@ -386,7 +386,7 @@
    "paid_cents": 19900,
    "plan_id": 1,
    "purchased_on": "2026-11-10",
-   "registered_at": "2026-11-23T04:30:02Z",
+   "registered_at": "2026-11-23T04:48:22Z",
    "url": "https://www.adafruit.com/product/4296",
    "variant": "8GB",
    "window_ends": "2027-01-10T00:00:00Z"
@@ -399,13 +399,13 @@
    "currency": "USD",
    "history": [
     {
-     "at": "2026-11-23T04:31:12Z",
+     "at": "2026-11-23T04:49:21Z",
      "credited_cents": 0,
      "detail": {
       "currency": "USD",
       "model_price": "120.00",
       "model_status": "PRICED",
-      "quote": "4GB $120.00"
+      "quote": "Raspberry Pi 4 Model B - 4 GB RAM Product ID: 4296 $120.00"
      },
      "record": {
       "price_cents": 12000,
@@ -415,12 +415,12 @@
    ],
    "id": 3,
    "item": "Raspberry Pi 4 Model B - 4 GB RAM",
-   "last_check": "2026-11-23T04:31:12Z",
+   "last_check": "2026-11-23T04:49:21Z",
    "last_detail": {
     "currency": "USD",
     "model_price": "120.00",
     "model_status": "PRICED",
-    "quote": "4GB $120.00"
+    "quote": "Raspberry Pi 4 Model B - 4 GB RAM Product ID: 4296 $120.00"
    },
    "last_record": {
     "price_cents": 12000,
@@ -430,7 +430,7 @@
    "paid_cents": 12000,
    "plan_id": 1,
    "purchased_on": "2026-11-12",
-   "registered_at": "2026-11-23T04:30:17Z",
+   "registered_at": "2026-11-23T04:48:32Z",
    "url": "https://www.adafruit.com/product/4296",
    "variant": "4GB",
    "window_ends": "2027-01-12T00:00:00Z"
@@ -443,7 +443,7 @@
    "balance": "1760000000000000000",
    "cap_cents": 5000,
    "coverage_bp": 10000,
-   "created_at": "2026-11-23T04:29:43Z",
+   "created_at": "2026-11-23T04:48:04Z",
    "hosts": [
     "adafruit.com"
    ],
@@ -479,5 +479,5 @@
    "UNREADABLE"
   ]
  },
- "finished_at": "2026-11-23T04:32:06Z"
+ "finished_at": "2026-11-23T04:50:15Z"
 }

@@ -406,7 +406,7 @@ def read_price(item: str, variant: str, currency: str, url: str, fence: str) -> 
         return {"status": "UNREADABLE", "price_cents": 0}, {"why": "item not named on page"}
     try:
         reply = parse_reply(gl.nondet.exec_prompt(
-            build_prompt(item, variant, currency, url, focus(text, item, CONTEXT_BUDGET), fence), response_format="json"))
+            build_prompt(item, variant, currency, url, focus(text, item, CONTEXT_BUDGET), fence)))
     except Exception:
         return {"status": "AMBIGUOUS", "price_cents": 0}, {"why": "bad model reply"}
     rec = canonicalize(reply, currency, text)

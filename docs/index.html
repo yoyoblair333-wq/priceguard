@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PriceGuard · price protection paid out by GenLayer consensus</title>
+<meta name="description" content="Credit-card-style price protection: GenLayer validators read the product page and agree on today's price; the drop is refunded from the issuer's pool.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<header>
+  <h1>Price<span>Guard</span></h1>
+  <p class="lede">Bought something and the price dropped a week later? Card issuers used to refund the difference, then most dropped the benefit because checking a claim took a person, a receipt and a web page. PriceGuard turns that check into one GenLayer round: validators read the product page, agree on today's price to the cent, and the drop is paid from the issuer's pool.</p>
+  <p class="net">GenLayer studionet (testnet) · test tokens only, no real money · contract <span id="addr"></span></p>
+  <p id="stats" class="muted">Reading the contract…</p>
+</header>
+<main>
+  <section>
+    <h2>How a check is decided</h2>
+    <div class="three">
+      <div class="card"><h3>1 · The issuer registers the purchase</h3><p>It has seen the receipt: buyer, product page, item, variant, price paid, date. Only pages on the retail sites the plan covers.</p></div>
+      <div class="card"><h3>2 · Validators read today's price</h3><p>Each fetches the page and reports the selling price of <b>that item and variant</b>: not the "was" price, not another size, not an add-on, member or financing price. Code then requires that exact price to be <b>printed on its own copy</b> with the currency sign. They must agree on <code>{status, price_cents}</code> exactly.</p></div>
+      <div class="card"><h3>3 · Plain code pays the drop</h3><p>coverage × (paid − lowest price seen), above the plan's minimum, under its cap, minus what was already paid. A deeper drop later pays the difference; the same drop never pays twice. Out of stock, unclear or unreadable pays nothing.</p></div>
+    </div>
+  </section>
+  <section>
+    <h2>Plans</h2>
+    <div id="plans" class="grid"></div>
+  </section>
+  <section>
+    <h2>Purchases and price checks</h2>
+    <div class="scroll"><table>
+      <thead><tr><th>#</th><th>Item</th><th>Paid</th><th>Validators read</th><th>Lowest</th><th>Refunded</th><th></th></tr></thead>
+      <tbody id="purchases"></tbody>
+    </table></div>
+  </section>
+  <section class="card">
+    <h2>Try it</h2>
+    <p class="muted">Uses a burner key kept in this browser (studionet only, funded by the free test faucet). The demo plan covers the <a href="store/">PriceGuard Demo Store</a>, a clearly labelled demo where the lamp is on sale: register that you "paid" the full price, then run a check. One check per purchase every 12 hours.</p>
+    <p>Your test key: <code id="me">none yet</code> <button id="wallet" type="button" class="ghost">Create / load test key</button></p>
+    <form id="buyform">
+      <label>Plan <select name="plan" id="plan"></select></label>
+      <label class="wide">Product page <input name="url" type="url" value="https://yoyoblair333-wq.github.io/priceguard/store/desk-lamp.html" required></label>
+      <label>Item <input name="item" value="Arc LED Desk Lamp" required></label>
+      <label>Variant <input name="variant" value="Matte Black"></label>
+      <label>Paid (USD) <input name="paid" type="number" step="0.01" min="0.01" value="89.00" required></label>
+      <label>Bought on <input name="day" type="date" required></label>
+      <button type="submit">Register purchase</button>
+    </form>
+    <p>Your refunds: <b id="bal" class="ok">-</b> <button id="withdraw" type="button" disabled>Withdraw</button></p>
+    <p id="log" class="log" role="status"></p>
+  </section>
+</main>
+<footer>
+  <p>Source, tests and live evidence: <a href="https://github.com/yoyoblair333-wq/priceguard">github.com/yoyoblair333-wq/priceguard</a> · <a href="https://github.com/yoyoblair333-wq/priceguard/blob/main/docs/LIVE_EVIDENCE.md">live evidence</a> · MIT. Retailers are named only because PriceGuard read their public product pages; PriceGuard is not affiliated with any retailer.</p>
+</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>

@@ -249,7 +249,7 @@
    ],
    "error": null,
    "latest": {
-    "status": "ACCEPTED",
+    "status": "FINALIZED",
     "result": "MAJORITY_AGREE",
     "execution": "SUCCESS",
     "votes": [
@@ -278,7 +278,7 @@
    ],
    "error": null,
    "latest": {
-    "status": "ACCEPTED",
+    "status": "FINALIZED",
     "result": "MAJORITY_AGREE",
     "execution": "SUCCESS",
     "votes": [
@@ -287,6 +287,180 @@
      "agree",
      "idle",
      "idle"
+    ],
+    "error": null
+   }
+  },
+  {
+   "step": "open_plan #2 demo (open to anyone, PriceGuard Demo Store; fund 2 GEN)",
+   "tx": "0x69f4141e6f538ccc5f55c5607ce89c7c7e03e13ccf23eb4ccb20aadc3d0bf8c1",
+   "sent_at": "2026-11-23T04:52:11Z",
+   "status": "ACCEPTED",
+   "result": "MAJORITY_AGREE",
+   "execution": "SUCCESS",
+   "votes": [
+    "agree",
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "error": null,
+   "latest": {
+    "status": "FINALIZED",
+    "result": "MAJORITY_AGREE",
+    "execution": "SUCCESS",
+    "votes": [
+     "agree",
+     "agree",
+     "agree",
+     "agree",
+     "agree"
+    ],
+    "error": null
+   }
+  },
+  {
+   "step": "register purchase #4: demo lamp paid $89.00, page now $69.00 sale",
+   "tx": "0x7bcd744571bf188f810d2676d5b0c374b87161f7185e8cd4b63c0dca23747553",
+   "sent_at": "2026-11-23T04:52:21Z",
+   "status": "ACCEPTED",
+   "result": "MAJORITY_AGREE",
+   "execution": "SUCCESS",
+   "votes": [
+    "agree",
+    "agree",
+    "agree",
+    "idle",
+    "idle"
+   ],
+   "error": null,
+   "latest": {
+    "status": "FINALIZED",
+    "result": "MAJORITY_AGREE",
+    "execution": "SUCCESS",
+    "votes": [
+     "agree",
+     "agree",
+     "agree",
+     "idle",
+     "idle"
+    ],
+    "error": null
+   }
+  },
+  {
+   "step": "register purchase #5: demo headphones paid $149.00, now sold out",
+   "tx": "0x272208a2e25b468ca48f2489cc51e5542aa474fb5c0702079202542eeef7f0ca",
+   "sent_at": "2026-11-23T04:52:31Z",
+   "status": "ACCEPTED",
+   "result": "MAJORITY_AGREE",
+   "execution": "SUCCESS",
+   "votes": [
+    "agree",
+    "agree",
+    "agree",
+    "idle",
+    "idle"
+   ],
+   "error": null,
+   "latest": {
+    "status": "FINALIZED",
+    "result": "MAJORITY_AGREE",
+    "execution": "SUCCESS",
+    "votes": [
+     "agree",
+     "agree",
+     "agree",
+     "idle",
+     "idle"
+    ],
+    "error": null
+   }
+  },
+  {
+   "step": "check #4 (consensus price read)",
+   "tx": "0x9e5ba90dfc6d2936ba7bc86b920e943aa3a1f5d6c310b080667e6f25e6026cfb",
+   "sent_at": "2026-11-23T04:52:40Z",
+   "status": "ACCEPTED",
+   "result": "MAJORITY_AGREE",
+   "execution": "SUCCESS",
+   "votes": [
+    "agree",
+    "agree",
+    "agree",
+    "idle",
+    "idle"
+   ],
+   "error": null,
+   "latest": {
+    "status": "FINALIZED",
+    "result": "MAJORITY_AGREE",
+    "execution": "SUCCESS",
+    "votes": [
+     "agree",
+     "agree",
+     "agree",
+     "idle",
+     "idle"
+    ],
+    "error": null
+   }
+  },
+  {
+   "step": "check #5 (consensus price read)",
+   "tx": "0xbbbb62aa222310596a5b070adb0f10ba3162b10fe20f1b889ebdf831a006f237",
+   "sent_at": "2026-11-23T04:53:00Z",
+   "status": "ACCEPTED",
+   "result": "MAJORITY_AGREE",
+   "execution": "SUCCESS",
+   "votes": [
+    "agree",
+    "agree",
+    "agree",
+    "idle",
+    "idle"
+   ],
+   "error": null,
+   "latest": {
+    "status": "FINALIZED",
+    "result": "MAJORITY_AGREE",
+    "execution": "SUCCESS",
+    "votes": [
+     "agree",
+     "agree",
+     "agree",
+     "idle",
+     "idle"
+    ],
+    "error": null
+   }
+  },
+  {
+   "step": "withdraw (buyer, demo-store refund)",
+   "tx": "0xd06c3b015c62d827437512a67c4aa4dc5fb434abd8f5569726de10c1e7fddbd1",
+   "sent_at": "2026-11-23T04:54:39Z",
+   "status": "ACCEPTED",
+   "result": "MAJORITY_AGREE",
+   "execution": "SUCCESS",
+   "votes": [
+    "agree",
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "error": null,
+   "latest": {
+    "status": "ACCEPTED",
+    "result": "MAJORITY_AGREE",
+    "execution": "SUCCESS",
+    "votes": [
+     "agree",
+     "agree",
+     "agree",
+     "agree",
+     "agree"
     ],
     "error": null
    }
@@ -434,10 +608,98 @@
    "url": "https://www.adafruit.com/product/4296",
    "variant": "4GB",
    "window_ends": "2027-01-12T00:00:00Z"
+  },
+  "4": {
+   "buyer": "0x0fF851cd935eD160C048c7312Dcda0ef97Be82AF",
+   "checks": 1,
+   "credited_cents": 2000,
+   "credited_wei": "200000000000000000",
+   "currency": "USD",
+   "history": [
+    {
+     "at": "2026-11-23T04:52:39Z",
+     "credited_cents": 2000,
+     "detail": {
+      "currency": "USD",
+      "model_price": "69.00",
+      "model_status": "PRICED",
+      "quote": "Colour: Matte Black Was $89.00 $69.00 Holiday sale In stock."
+     },
+     "record": {
+      "price_cents": 6900,
+      "status": "PRICED"
+     }
+    }
+   ],
+   "id": 4,
+   "item": "Arc LED Desk Lamp",
+   "last_check": "2026-11-23T04:52:39Z",
+   "last_detail": {
+    "currency": "USD",
+    "model_price": "69.00",
+    "model_status": "PRICED",
+    "quote": "Colour: Matte Black Was $89.00 $69.00 Holiday sale In stock."
+   },
+   "last_record": {
+    "price_cents": 6900,
+    "status": "PRICED"
+   },
+   "lowest_cents": 6900,
+   "paid_cents": 8900,
+   "plan_id": 2,
+   "purchased_on": "2026-11-15",
+   "registered_at": "2026-11-23T04:52:20Z",
+   "url": "https://yoyoblair333-wq.github.io/priceguard/store/desk-lamp.html",
+   "variant": "Matte Black",
+   "window_ends": "2027-01-15T00:00:00Z"
+  },
+  "5": {
+   "buyer": "0x59C124c3A5D2D47B7EE49D2d89D10A28ac629147",
+   "checks": 1,
+   "credited_cents": 0,
+   "credited_wei": "0",
+   "currency": "USD",
+   "history": [
+    {
+     "at": "2026-11-23T04:52:59Z",
+     "credited_cents": 0,
+     "detail": {
+      "currency": "USD",
+      "model_price": "149.00",
+      "model_status": "UNAVAILABLE",
+      "quote": "SKU Q1-WL $149.00 Sold out."
+     },
+     "record": {
+      "price_cents": 0,
+      "status": "UNAVAILABLE"
+     }
+    }
+   ],
+   "id": 5,
+   "item": "Quiet One Wireless Headphones",
+   "last_check": "2026-11-23T04:52:59Z",
+   "last_detail": {
+    "currency": "USD",
+    "model_price": "149.00",
+    "model_status": "UNAVAILABLE",
+    "quote": "SKU Q1-WL $149.00 Sold out."
+   },
+   "last_record": {
+    "price_cents": 0,
+    "status": "UNAVAILABLE"
+   },
+   "lowest_cents": 14900,
+   "paid_cents": 14900,
+   "plan_id": 2,
+   "purchased_on": "2026-11-15",
+   "registered_at": "2026-11-23T04:52:30Z",
+   "url": "https://yoyoblair333-wq.github.io/priceguard/store/headphones.html",
+   "variant": "",
+   "window_ends": "2027-01-15T00:00:00Z"
   }
  },
- "balance_before_withdraw_buyer": "150000000000000000",
- "balance_before_withdraw_buyer2": "90000000000000000",
+ "balance_before_withdraw_buyer": "200000000000000000",
+ "balance_before_withdraw_buyer2": "0",
  "plans": {
   "1": {
    "balance": "1760000000000000000",
@@ -456,6 +718,24 @@
    "purchases": 3,
    "wei_per_usd": "10000000000000000",
    "window_days": 60
+  },
+  "2": {
+   "balance": "1800000000000000000",
+   "cap_cents": 5000,
+   "coverage_bp": 10000,
+   "created_at": "2026-11-23T04:52:10Z",
+   "hosts": [
+    "yoyoblair333-wq.github.io"
+   ],
+   "id": 2,
+   "issuer": "0xF73f87dABA85ACc440Adc57580eF5d309c03f79d",
+   "min_drop_cents": 100,
+   "name": "PriceGuard Demo Plan",
+   "open_demo": true,
+   "paid": "200000000000000000",
+   "purchases": 2,
+   "wei_per_usd": "10000000000000000",
+   "window_days": 60
   }
  },
  "stats": {
@@ -469,8 +749,8 @@
   ],
   "max_checks": 20,
   "owner": "0xF73f87dABA85ACc440Adc57580eF5d309c03f79d",
-  "plans": 1,
-  "purchases": 3,
+  "plans": 2,
+  "purchases": 5,
   "schema": "priceguard.v1",
   "statuses": [
    "PRICED",
@@ -479,5 +759,6 @@
    "UNREADABLE"
   ]
  },
- "finished_at": "2026-11-23T04:50:15Z"
+ "finished_at": "2026-11-23T04:53:38Z",
+ "balance_after_final_withdraw_buyer": "0"
 }

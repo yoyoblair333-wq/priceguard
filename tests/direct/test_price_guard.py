@@ -373,3 +373,74 @@ class TestWithdrawViews:
         assert "history" not in guard.list_purchases()[0]
         s = guard.stats()
         assert s["plans"] == 1 and s["purchases"] == 1 and s["schema"] == "priceguard.v1"
+
+
+# ------------------------------------------- steward regression (partial pool)
+
+class TestPartialPoolRefill:
+    """Steward request: a partial payout from an underfunded pool must be
+    deducted in WEI, so refilling the pool can never overpay the same drop.
+
+    2-cent entitlement at 1,000 wei per USD = 20 wei. The pool first holds
+    only 5 wei; after a refill the buyer may receive the remaining 15 wei and
+    nothing more - cumulative credit stays at most 20 wei."""
+
+    WPU_SMALL = 1_000
+
+    def _setup(self, guard, vm, issuer, buyer):
+        vm.sender = issuer
+        vm.value = 5                                  # pool can cover 5 wei only
+        pid = guard.open_plan("Tiny pool", ["shop.example.com"], 10_000, 60, 1, 50_000, self.WPU_SMALL, False)
+        vm.value = 0
+        cid = guard.register_purchase(pid, hexa(buyer), URL, ITEM, "4GB", "USD", 12_002, "2026-11-10")
+        page(vm)
+        model(vm)                                     # page reads $120.00 -> 2-cent drop
+        return pid, cid
+
+    def test_refill_cannot_overpay_same_drop(self, guard, direct_vm, direct_bob, direct_charlie):
+        pid, cid = self._setup(guard, direct_vm, direct_bob, direct_charlie)
+        assert guard.quote(pid, 12_002, 12_000) == {"refund_cents": 2, "refund_wei": "20"}
+
+        c = guard.check(cid)                          # 1) underfunded: 5 of 20 wei
+        assert c["credited_wei"] == "5"
+        assert guard.get_plan(pid)["balance"] == "0"
+
+        direct_vm.sender = direct_bob                 # 2) issuer refills the pool
+        direct_vm.value = 1_000
+        guard.top_up(pid)
+        direct_vm.value = 0
+
+        at(direct_vm, "2026-11-21T01:00:00Z")         # 3) same price, next check
+        c = guard.check(cid)
+        assert c["credited_wei"] == "20"              # only the 15-wei remainder was paid
+        assert c["credited_cents"] == 2
+        assert c["history"][1]["credited_cents"] == 2
+
+        direct_vm.sender = direct_bob                 # 4) another refill + check: nothing more
+        direct_vm.value = 1_000
+        guard.top_up(pid)
+        direct_vm.value = 0
+        at(direct_vm, "2026-11-22T01:00:00Z")
+        c = guard.check(cid)
+        assert c["credited_wei"] == "20"
+        assert guard.balance_of(hexa(direct_charlie)) == "20"
+        assert int(guard.get_plan(pid)["paid"]) <= 20
+        assert guard.get_plan(pid)["balance"] == str(2_000 - 15)
+
+    def test_cumulative_credit_never_exceeds_entitlement_across_many_refills(self, guard, direct_vm, direct_bob,
+                                                                             direct_charlie):
+        pid, cid = self._setup(guard, direct_vm, direct_bob, direct_charlie)
+        day = 20
+        for refill in (1, 2, 3, 7, 1_000):
+            at(direct_vm, f"2026-11-{day:02d}T13:00:00Z")
+            guard.check(cid)
+            assert int(guard.get_purchase(cid)["credited_wei"]) <= 20
+            direct_vm.sender = direct_bob
+            direct_vm.value = refill
+            guard.top_up(pid)
+            direct_vm.value = 0
+            day += 1
+        at(direct_vm, f"2026-11-{day:02d}T13:00:00Z")
+        c = guard.check(cid)
+        assert c["credited_wei"] == "20"
+        assert guard.balance_of(hexa(direct_charlie)) == "20"

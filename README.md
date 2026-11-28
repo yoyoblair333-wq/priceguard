@@ -27,6 +27,7 @@ Credit cards used to refund you when something you bought got cheaper within 60 
 4. **Payout (plain code).**
    - The refund is `min(coverage × (paid − lowest price seen), cap)`, and only if the drop is at least the minimum. What was already paid is subtracted.
    - A deeper drop later pays only the extra difference. The same drop never pays twice. A price that rises again never claws anything back.
+   - Accounting is in **wei actually paid**. If the pool was short and paid only part of a refund, a later refill pays only the remainder: cumulative credit for a purchase can never exceed its entitlement (regression: `TestPartialPoolRefill` — a 2-cent drop at 1,000 wei/USD is 20 wei; 5 wei paid, pool refilled, total stays 20).
    - The refund goes to the buyer's balance at once, and the buyer calls `withdraw`.
 
 ## How consensus is used

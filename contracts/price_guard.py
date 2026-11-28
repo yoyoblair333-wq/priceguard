@@ -591,18 +591,26 @@ class PriceGuard(gl.Contract):
             c.lowest_cents = u32(rec["price_cents"])
         due = refund_cents(int(c.paid_cents), int(c.lowest_cents), int(p.coverage_bp), int(p.min_drop_cents),
                            int(p.cap_cents))
-        if due > int(c.credited_cents):
-            want_wei = cents_to_wei(due - int(c.credited_cents), int(p.wei_per_usd))
-            got = min(want_wei, int(p.balance))
+        # Accounting is done in WEI, the unit actually paid out. The total
+        # entitlement for this purchase is converted once; whatever wei were
+        # already credited (including partial payouts from an underfunded pool)
+        # are deducted, so a pool top-up can only ever pay the remainder and
+        # cumulative credit never exceeds the entitlement for the same drop.
+        entitled_wei = cents_to_wei(due, int(p.wei_per_usd))
+        owed_wei = entitled_wei - int(c.credited_wei)
+        if owed_wei > 0:
+            got = min(owed_wei, int(p.balance))
             if got > 0:
                 p.balance = u256(int(p.balance) - got)
                 p.paid = u256(int(p.paid) + got)
                 k = c.buyer.as_hex.lower()
                 self.balances[k] = u256(int(self.balances.get(k, u256(0))) + got)
                 c.credited_wei = u256(int(c.credited_wei) + got)
-                # cents credited in proportion to what the pool could cover
-                credited_now = (due - int(c.credited_cents)) if got == want_wei else (got * 100) // int(p.wei_per_usd)
-                c.credited_cents = u32(int(c.credited_cents) + credited_now)
+                # credited_cents is display-only, derived from wei actually paid
+                new_cents = due if int(c.credited_wei) >= entitled_wei else \
+                    (int(c.credited_wei) * 100) // int(p.wei_per_usd)
+                credited_now = new_cents - int(c.credited_cents)
+                c.credited_cents = u32(new_cents)
         n = int(c.checks)
         self.history[f"{int(c.id)}:{n}"] = json.dumps({"at": iso(now), "record": rec, "detail": det,
                                                        "credited_cents": credited_now}, sort_keys=True)
